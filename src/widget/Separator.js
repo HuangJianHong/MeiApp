@@ -7,7 +7,7 @@ import React, {PureComponent} from "react";
 import {StyleSheet, View} from "react-native";
 
 import color from "./color";
-import {screen, system} from "../common";      //Warning TODO
+import screen from "../common/screen";      //Warning TODO
 
 
 export default class Separator extends PureComponent {

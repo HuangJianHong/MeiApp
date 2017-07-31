@@ -8,8 +8,9 @@ import {View, Text, StyleSheet, Image, ScrollView, RefreshControl, TouchableOpac
 import {Heading1, Heading2, Paragraph} from '../../widget/Text';
 // import {screen, system} from '../../common';
 import screen from '../../common/screen';
-import {color, NavigatorItem} from '../../widget'   //cannot resolve file widget
-import SpaceingView from '../../widget/SpaceingView';
+import NavigatorItem from '../../widget/NavigationItem'      //cannot resolve file widget
+import color from '../../widget/color';
+import SpacingView from '../../widget/SpacingView';
 import DetailCell from '../../widget/DetailCell';
 
 export default class MineScene extends PureComponent {
@@ -40,7 +41,7 @@ export default class MineScene extends PureComponent {
         )
     }
 
-    //? TODO AnyQuestion
+    //初始化 State
     state:{
         isRefreshing:boolean
     };
@@ -74,7 +75,7 @@ export default class MineScene extends PureComponent {
                     />
                 }>
                 {this.renderHeader()}
-                <SpaceingView />
+                <SpacingView />
                 {this.renderCells()}
             </ScrollView>
           </View>
@@ -108,7 +109,7 @@ export default class MineScene extends PureComponent {
                 let cell = <DetailCell image={data.image} title={data.title} subtitle={data.subtitle} key={data.title}/>
                 cells.push(cell)
             }
-            cells.push(<SpaceingView key={i}/>)
+            cells.push(<SpacingView key={i}/>)
         }
 
         return(
