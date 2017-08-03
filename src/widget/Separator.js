@@ -20,7 +20,7 @@ export default class Separator extends PureComponent {
 
 const styles = StyleSheet.create({
     line: {
-        with: screen.with,
+        width: screen.width,
         height: screen.onePixel,
         backgroundColor: color.background,
     }

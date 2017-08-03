@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
 
     subtitleContainer: {
         flexDirection: 'row',
-        justifyItems: 'flex-end',
+        justifyContent: 'flex-end',
         alignItems: 'center',
     },
 

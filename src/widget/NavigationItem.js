@@ -9,10 +9,10 @@ import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native'
 export  default class NavigationItem extends  PureComponent {
     render() {
         let icon = this.props.icon &&
-            <Image style={[styles.icon, this.props.iconStyle]} source={this.props.icon}/>
+            <Image style={[styles.icon, this.props.iconStyle]} source={this.props.icon}/>;
 
         let title = this.props.title &&
-            <Text style={[styles.title,  this.props.titleStyle]}>{this.props.title}</Text>
+            <Text style={[styles.title,  this.props.titleStyle]}>{this.props.title}</Text>;
 
         return(
             <TouchableOpacity style={styles.container} onPress={this.props.onPress}>
@@ -31,13 +31,13 @@ export  default class NavigationItem extends  PureComponent {
         alignItems:'center',
     },
      icon:{
-        width:'27',
-         height:'27',
-         margin:'8',
+        width: 27,
+         height:27,
+         margin:8,
      },
      title:{
-        fontSize:'15',
+        fontSize: 15,
          color:'#333333',
-         margin:'8',
+         margin:8,
      }
  });
