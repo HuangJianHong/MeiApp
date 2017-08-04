@@ -7,7 +7,7 @@ import React,{PureComponent} from 'react';
 import {StyleSheet, Image, TouchableOpacity} from 'react-native';
 
 import {Heading2} from '../../widget/Text';
-import screen from '../../common';
+import screen from '../../common/screen';
 
 class OrderMenuItem extends PureComponent{
       render(){

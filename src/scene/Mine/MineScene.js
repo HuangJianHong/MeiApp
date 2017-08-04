@@ -6,9 +6,7 @@ import React, {PureComponent} from 'react';
 import {View, Text, StyleSheet, Image, ScrollView, RefreshControl, TouchableOpacity} from 'react-native';
 
 import {Heading1, Heading2, Paragraph} from '../../widget/Text';
-// import {screen, system} from '../../common';
 import screen from '../../common/screen';
-import NavigatorItem from '../../widget/NavigationItem'      //cannot resolve file widget
 import color from '../../widget/color';
 import SpacingView from '../../widget/SpacingView';
 import DetailCell from '../../widget/DetailCell';
@@ -69,7 +67,7 @@ export default class MineScene extends PureComponent {
             <ScrollView
                 refreshControl={
                     <RefreshControl
-                        refreshing={this.state.refreshing}
+                        refreshing={this.state.isRefreshing}
                         onRefresh={()=> this.onHeaderRefresh()}
                         tintColor='gray'
                     />

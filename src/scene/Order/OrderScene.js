@@ -8,7 +8,7 @@ import {ListView, StatusBar, StyleSheet, View} from "react-native";
 
 import api from "../../api";
 import OrderMenuItem from "./OrderMemuItem";
-import GroupPuchaseCell from "../GroupPurchase/GroupPurchaseCell";
+import GroupPurchaseCell from "../GroupPurchase/GroupPurchaseCell";
 import DetailCell from "../../widget/DetailCell";
 import RefreshListView from "../../widget/RefreshListView";
 import RefreshState from "../../widget/RefreshState";
@@ -32,7 +32,7 @@ class OrderScene extends PureComponent {
     }
 
     componentDidMount() {
-        this.listView.startheaderRefreshing();
+        // this.listView.startheaderRefreshing();
     }
 
 
@@ -61,7 +61,7 @@ class OrderScene extends PureComponent {
             });
 
             setTimeout(() => {
-                this.listView.endRefreshing(RefreshState.NoMoreData)
+                // this.listView.endRefreshing(RefreshState.NoMoreData)
             }, 500);
 
         } catch (error) {
@@ -79,7 +79,7 @@ class OrderScene extends PureComponent {
                     dataSource={this.state.dataSource}
                     renderHeader={() => this.renderHeader}
                     renderRow={ (rowData) =>
-                        <GroupPuchaseCell
+                        <GroupPurchaseCell
                             info={rowData}
                             onPress={ () =>
                                 StatusBar.setBarStyle('default', false)

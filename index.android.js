@@ -5,14 +5,16 @@
  */
 
 import React, {Component} from 'react';
-import {AppRegistry} from 'react-native';
+import {AppRegistry,Text, View} from 'react-native';
+// import RootScene from './src/RootScene';
+import MineScene from './src/scene/Mine/MineScene';
+import OrderScene from './src/scene/Order/OrderScene';
 
-import RootScene from './src/RootScene';
 
 export default class MeiApp extends Component {
     render() {
         return (
-            <RootScene/>
+            <OrderScene/>
         )
     }
 }
