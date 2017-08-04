@@ -13,7 +13,7 @@ class OrderMenuItem extends PureComponent{
       render(){
           return(
            <TouchableOpacity style={styles.container}>
-               <Image source={this.props.icon} resizeMethod='contain' style={styles.icon}/>
+               <Image source={this.props.icon}  style={styles.icon}/>
               <Heading2>
                   {this.props.title}
               </Heading2>

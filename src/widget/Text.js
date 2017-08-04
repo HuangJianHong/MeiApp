@@ -16,8 +16,8 @@ export function Heading1({style, ...props}: Object): ReactElement {
     return <Text style={[styles.h1, style]} {...props}/>
 }
 
-export function Heading2({styles, ...props}: Object): ReactElement {
-    return <Text style={[styles.h2]} {...props}/>
+export function Heading2({style, ...props}: Object): ReactElement {
+    return <Text style={[styles.h2, style]} {...props}/>
 }
 
 export function Paragraph({style, ...props}: Object): ReactElement {

@@ -5,13 +5,32 @@
 import React, {PureComponent} from 'react';
 import {View, Text, StyleSheet, Image, ScrollView, RefreshControl, TouchableOpacity} from 'react-native';
 
-import {Heading1, Heading2, Paragraph} from '../../widget/Text';
+import {Heading1,  Paragraph} from '../../widget/Text';
 import screen from '../../common/screen';
 import color from '../../widget/color';
 import SpacingView from '../../widget/SpacingView';
 import DetailCell from '../../widget/DetailCell';
+import NavigationItem from '../../widget/NavigationItem';
 
 export default class MineScene extends PureComponent {
+
+    static navigationOptions = ({navigation}) => ({
+            headerRight:(
+                <View style={{flexDirection:'row'}}>
+                    <NavigationItem
+                        icon={require('../../img/Mine/icon_navigationItem_set_white@2x.png')}
+                        onPress={() => {}}
+                    />
+
+                    <NavigationItem
+                        icon={require('../../img/Home/icon_navigationItem_message_white@2x.png')}
+                    />
+
+                </View>
+            ),
+        headerStyle:{backgroundColor: color.theme},
+        });
+
 
     //配置本地数据
     getDataList() {
@@ -100,10 +119,10 @@ export default class MineScene extends PureComponent {
     renderCells(){
         let cells =[];
         let dataList = this.getDataList();
-        for (let i=0; dataList.length; i++){
+        for (let i=0; i < dataList.length; i++){
             let subList= dataList[i];
-            for(let j=0; subList.length; j++){
-                let data = subList[i];
+            for(let j=0; j < subList.length; j++){
+                let data = subList[j];
                 let cell = <DetailCell image={data.image} title={data.title} subtitle={data.subtitle} key={data.title}/>
                 cells.push(cell)
             }

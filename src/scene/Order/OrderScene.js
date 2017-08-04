@@ -16,13 +16,18 @@ import SpacingView from "../../widget/SpacingView";
 
 class OrderScene extends PureComponent {
 
-    listView: ListView;
+    listView: ListView
+
+    static navigationOptions = ({navigation}) =>({
+       title:'订单',
+        headerStyle: {backgroundColor:'white'}
+    });
 
     state: {
         dataSource: ListView.DataSource
     };
 
-    constructor(props) {
+    constructor(props: Object) {
         super(props);
 
         let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -32,7 +37,7 @@ class OrderScene extends PureComponent {
     }
 
     componentDidMount() {
-        // this.listView.startheaderRefreshing();
+        this.listView.startHeaderRefreshing();
     }
 
 
@@ -44,7 +49,7 @@ class OrderScene extends PureComponent {
             let dataList = json.data.map((info) => {
                 return {
                     id: info.id,
-                    imageUrl: info.squareimagurl,
+                    imageUrl: info.squareimgurl,
                     title: info.mname,
                     subtitle: `[${info.range}]${info.title}`,
                     price: info.price,
@@ -61,7 +66,7 @@ class OrderScene extends PureComponent {
             });
 
             setTimeout(() => {
-                // this.listView.endRefreshing(RefreshState.NoMoreData)
+                this.listView.endRefreshing(RefreshState.NoMoreData)
             }, 500);
 
         } catch (error) {
@@ -77,14 +82,14 @@ class OrderScene extends PureComponent {
                 <RefreshListView
                     ref={(e) => this.listView = e}
                     dataSource={this.state.dataSource}
-                    renderHeader={() => this.renderHeader}
+                    renderHeader={() => this.renderHeader()}
                     renderRow={ (rowData) =>
                         <GroupPurchaseCell
                             info={rowData}
-                            onPress={ () =>
+                            onPress={ () =>{
                                 StatusBar.setBarStyle('default', false)
-                                //  TODO
-                            }
+                                this.props.navigation.navigate('GroupPurchase', { info: rowData })
+                            }}
                         />
                     }
                     onHeaderRefresh={ () => this.requestData()}
@@ -104,8 +109,7 @@ class OrderScene extends PureComponent {
                     <OrderMenuItem title='待付款' icon={require('../../img/Order/order_tab_need_pay@2x.png')}/>
                     <OrderMenuItem title='待使用' icon={require('../../img/Order/order_tab_need_use@2x.png')}/>
                     <OrderMenuItem title='待评价' icon={require('../../img/Order/order_tab_need_review@2x.png')}/>
-                    <OrderMenuItem title='退款/售后'
-                                   icon={require('../../img/Order/order_tab_needoffer_aftersale@2x.png')}/>
+                    <OrderMenuItem title='退款/售后' icon={require('../../img/Order/order_tab_needoffer_aftersale@2x.png')}/>
                 </View>
 
                 <SpacingView/>
