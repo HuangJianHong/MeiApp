@@ -11,7 +11,7 @@ import color from './widget/color';
 
 import MineScene from './scene/Mine/MineScene';
 import OrderScene from './scene/Order/OrderScene';
-
+import HomeScene from './scene/Home/HomeScene'
 
 
 function getCurrentRouteName(navigationState){
@@ -61,6 +61,22 @@ class RootScene extends PureComponent{
 
 const Tab = TabNavigator(
     {
+        Home:{
+            screen: HomeScene,
+            navigationOptions: ({navigation}) =>({
+                tabBarLabel:'团购',
+                tabBarIcon: ({focused, tintColor}) => (
+                    <TabBarItem
+                        tintColor={tintColor}
+                        focused ={focused}
+                        normalImage={ require('./img/tabbar/pfb_tabbar_homepage@2x.png')}
+                        selectImage={ require('./img/tabbar/pfb_tabbar_homepage_selected@2x.png')}
+                    />
+                )
+            }),
+        },
+
+
         Order:{
             screen: OrderScene,
             navigationOptions: ({navigation}) => ({
